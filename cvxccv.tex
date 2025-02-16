@@ -680,7 +680,7 @@ first constraint is convex, second constraint is concave
 
 \begin{frame}{$\ell_{1/2}$ regularized regression}
 \BIT
-\item minimizing $\|Ax-b\|_2^2+\lambda \| x\|_1$ tends to yield \textbf{sparse} $x$
+\item minimizing $\|Ax-b\|_2^2+\lambda \| x\|_1$ where $A \in \reals^{m \times n}$ tends to yield \textbf{sparse} $x$
 \item (approximately) 
 minimizing $\|Ax-b\|_2^2+\lambda \sum_i |x_i|^{1/2}$ can yield \textbf{sparser} $x$
 \item sometimes called $\ell_{1/2}$ regularization (but it's not a norm)
