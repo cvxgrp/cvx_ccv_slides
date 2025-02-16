@@ -3,7 +3,7 @@
 This repository contains the [EE 364a](https://web.stanford.edu/class/ee364a/) slides on the convex-concave procedure,
 together with example code.
 
-For more theoretical background, please refer to Thomas Lipp's and Stephen Boyd's paper
+For more theoretical background, please refer to Thomas Lipp and Stephen Boyd's paper
 on [Variations and Extensions of the Convex-Concave Procedure](https://web.stanford.edu/~boyd/papers/cvx_ccv.html).
 
 Most of the examples use [DCCP](https://web.stanford.edu/~boyd/papers/dccp.html),
