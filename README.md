@@ -1,4 +1,4 @@
-# Convex-Concave Slides and Code
+# Convex-Concave Lecture Slides and Code
 
 This repository contains the [EE 364a](https://web.stanford.edu/class/ee364a/) slides on the convex-concave procedure,
 together with example code.
