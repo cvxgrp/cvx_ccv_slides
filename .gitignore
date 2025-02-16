@@ -1,0 +1,30 @@
+# LaTeX related exclusions
+*.ps
+*.pdf
+!img/*.pdf
+*.dvi
+*.aux
+*.log
+*.swp
+*.nav
+*.snm
+*.toc
+*.out
+*.auxlock
+*.synctex.gz
+*.bbl
+*.toc
+*.blg
+*.fdb_latexmk
+*.fls
+*.vrb
+myenv/
+
+
+
+# Misc. exclusions
+*~
+*.DS_Store
+[#]*[#]
+*.ipynb_checkpoints
+*.pyc
