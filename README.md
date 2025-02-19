@@ -14,6 +14,6 @@ for convex optimization [CVXPY](https://www.cvxpy.org).
 Here is an example on collision avoidance, using the convex-concave procedure (the code is [here](code/collision_avoidance.py)). Each colored vehicle aims
 to travel to the opposite side of the circle of initial positions.
 We minimize the total distance travelled by all vehicles, subject to
-no collisions.
+no collisions.  The convex-concave procedure discovers the roundabout.
 
 ![Collision Avoidance](img/collision_avoidance.gif)
