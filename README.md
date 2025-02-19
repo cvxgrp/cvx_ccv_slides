@@ -2,6 +2,7 @@
 
 This repository contains the [EE 364a](https://web.stanford.edu/class/ee364a/) slides on the convex-concave procedure,
 together with example code.
+To see the animations in the PDF file, you need to select a viewer that supports animations, such as Adobe Acrobat Reader.
 
 For more theoretical background, please refer to Thomas Lipp and Stephen Boyd's paper
 on [Variations and Extensions of the Convex-Concave Procedure](https://web.stanford.edu/~boyd/papers/cvx_ccv.html).
