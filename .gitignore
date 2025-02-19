@@ -2,7 +2,7 @@
 *.ps
 *.pdf
 !img/*.pdf
-img/*.png
+img/collision_avoidance_frame_*.pdf
 *.dvi
 *.aux
 *.log

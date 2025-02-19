@@ -100,6 +100,7 @@ for t in range(T+1):
     plt.figure(figsize=(4.2, 4))
     draw(Xk[t], True)
     plt.savefig(f'img/collision_avoidance_frame_{t}.png', bbox_inches='tight')
+    plt.savefig(f'img/collision_avoidance_frame_{t}.pdf', bbox_inches='tight')
     plt.close()
     
 gif_duration = 3
@@ -109,6 +110,7 @@ for t in range(T+1):
     file = f'img/collision_avoidance_frame_{t}.png'
     if os.path.exists(file):
         frames.append(Image.open(file))
+        os.remove(file)
 
 output_path = 'img/collision_avoidance.gif'
 frames[0].save(
