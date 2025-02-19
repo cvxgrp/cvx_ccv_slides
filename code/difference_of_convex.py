@@ -1,7 +1,12 @@
-
+import os
 import cvxpy as cp
 import numpy as np
 import matplotlib.pyplot as plt
+
+
+img_path = 'img'
+if os.path.basename(os.getcwd()) == 'code':
+    img_path = os.path.join('..', img_path)
 
 
 # functions
@@ -25,7 +30,7 @@ plt.plot(x, h1(x), color='blue')
 plt.xticks(np.arange(-1, 2))
 plt.yticks(np.arange(0, 2))
 plt.xlabel('x')
-plt.savefig('img/DC1.pdf')
+plt.savefig(os.path.join(img_path, 'DC1.pdf'))
 plt.show()
 
 plt.plot(x, h2(x), color='blue')
@@ -34,7 +39,7 @@ plt.plot(x, g2(x), '--', color=[1, 0, 1])
 plt.xticks(np.arange(-1, 2))
 plt.yticks(np.arange(-1, 2))
 plt.xlabel('x')
-plt.savefig('img/DC2.pdf')
+plt.savefig(os.path.join(img_path, 'DC2.pdf'))
 plt.show()
 
 
@@ -55,7 +60,7 @@ plt.plot(x, h1(x), color='blue')
 plt.xticks(np.arange(-1, 2))
 plt.yticks(np.arange(0, 2))
 plt.xlabel('x')
-plt.savefig('img/DC1_majorized.pdf')
+plt.savefig(os.path.join(img_path, 'DC1_majorized.pdf'))
 plt.show()
 
 plt.plot(x, get_majorizer2(-0.5)(x), color='gray', linewidth=0.7)
@@ -63,7 +68,7 @@ plt.plot(x, h2(x), color='blue')
 plt.xticks(np.arange(-1, 2))
 plt.yticks(np.arange(-1, 3))
 plt.xlabel('x')
-plt.savefig('img/DC2_majorized.pdf')
+plt.savefig(os.path.join(img_path, 'DC1_majorized.pdf'))
 plt.show()
 
 
@@ -101,5 +106,5 @@ for xk, name in zip([-0.2, 0.2], ['left', 'right']):
         plt.title(f'$k={k}$')
 
     plt.tight_layout()
-    plt.savefig(f'img/DC1_iterations_{name}.pdf')
+    plt.savefig(os.path.join(img_path, f'DC1_iterations_{name}.pdf'))
     plt.show()

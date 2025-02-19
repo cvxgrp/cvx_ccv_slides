@@ -1,9 +1,14 @@
-
+import os
 import cvxpy as cp
 import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
+
+
+img_path = 'img'
+if os.path.basename(os.getcwd()) == 'code':
+    img_path = os.path.join('..', img_path)
 
 
 markersize=30
@@ -28,12 +33,12 @@ x1 = np.linspace(-2, 4, 100)
 
 plt.figure(figsize=(4, 4))
 draw_restriction(x1, np.array([3, 1]))
-plt.savefig('img/convex_restriction_31.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'convex_restriction_31.pdf'), bbox_inches='tight')
 plt.show()
 
 plt.figure(figsize=(4, 4))
 draw_restriction(x1, np.array([1, 2]))
-plt.savefig('img/convex_restriction_12.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'convex_restriction_12.pdf'), bbox_inches='tight')
 plt.show()
 
 # 4 iterations of CCP
@@ -71,7 +76,7 @@ for k in range(K):
     val[k+1] = la.norm(xk - c)
     
 plt.tight_layout()
-plt.savefig('img/convex_restriction_iterations.pdf')
+plt.savefig(os.path.join(img_path, 'convex_restriction_iterations.pdf'), bbox_inches='tight')
 plt.show()
 
 np.random.seed(5)
@@ -99,5 +104,5 @@ plt.plot(val, color='blue')
 plt.xticks(np.arange(K+1))
 plt.xlabel('k')
 plt.ylabel('objective')
-plt.savefig('img/convex_restriction_iterations_value.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'convex_restriction_iterations_value.pdf'), bbox_inches='tight')
 plt.show()

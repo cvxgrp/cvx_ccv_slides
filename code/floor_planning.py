@@ -1,10 +1,15 @@
-
+import os
 import numpy as np
 import cvxpy as cp
 import matplotlib.pyplot as plt
 
 
-PLOT_ITERATIONS = False
+PLOT_ITERATIONS = True
+
+
+img_path = 'img'
+if os.path.basename(os.getcwd()) == 'code':
+    img_path = os.path.join('..', img_path)
 
 
 def draw(ax, k, x, y, c, val):
@@ -107,7 +112,7 @@ for idx, seed in enumerate(seeds):
         val[idx, k+1] = prob_linearized.value
     
     if PLOT_ITERATIONS:
-        plt.savefig(f'img/floor_planning_seed{seed}.pdf', bbox_inches='tight')
+        plt.savefig(os.path.join(img_path, f'floor_planning_seed{seed}.pdf'), bbox_inches='tight')
         plt.show()
 
 
@@ -119,7 +124,7 @@ if not PLOT_ITERATIONS:
     plt.hist(val[:, -1], bins=20, color='blue', edgecolor='black')
     plt.xlabel('final objective')
     plt.ylabel('number of trials')
-    plt.savefig('img/floor_planning_hist.pdf', bbox_inches='tight')
+    plt.savefig(os.path.join(img_path, 'floor_planning_hist.pdf'), bbox_inches='tight')
     plt.show()
     
     plt.figure(figsize=(5, 4))
@@ -128,7 +133,7 @@ if not PLOT_ITERATIONS:
     plt.xlim(0, K)
     plt.xticks(np.arange(K+1))
     plt.ylabel('objective')
-    plt.savefig('img/floor_planning_traj.pdf', bbox_inches='tight')
+    plt.savefig(os.path.join(img_path, 'floor_planning_traj.pdf'), bbox_inches='tight')
     plt.show()
     
     # compare to lower bound

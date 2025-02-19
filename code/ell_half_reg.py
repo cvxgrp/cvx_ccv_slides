@@ -2,7 +2,6 @@ import numpy as np
 import cvxpy as cp
 import numpy.linalg as LA
 import dccp
-import pdb
 
 # Manual implementation of CCP
 def ccp_noncvx(A, b, lmbda, max_iter=40, eps=1e-10, x0=None):

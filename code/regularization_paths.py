@@ -1,3 +1,4 @@
+import os
 import numpy as np 
 import cvxpy as cp 
 import numpy.linalg as LA
@@ -5,6 +6,10 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from ell_half_reg import ccp_noncvx, DCCP_ell_half
 from matplotlib.ticker import ScalarFormatter
+
+img_path = 'img'
+if os.path.basename(os.getcwd()) == 'code':
+    img_path = os.path.join('..', img_path)
 
 # generate random data
 ratio = 2
@@ -88,7 +93,7 @@ formatter.set_powerlimits((2, 2))
 ax2.yaxis.set_major_formatter(formatter)
 
 plt.tight_layout()
-plt.savefig("../img/card_and_fit.pdf", dpi=300)
+plt.savefig(os.path.join(img_path, "card_and_fit.pdf"), dpi=300)
 
 # -----------------------------------------------------------------
 #            plot regularization path for lasso
@@ -103,7 +108,7 @@ plt.ylim(-4, 4.5)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.tick_params(axis='both', labelsize=22)
 plt.tight_layout()
-plt.savefig("../img/lasso_reg_path_larger.pdf", dpi=300)
+plt.savefig(os.path.join(img_path, "lasso_reg_path_larger.pdf"), dpi=300)
 
 
 # -----------------------------------------------------------------
@@ -119,7 +124,7 @@ plt.ylim(-4, 4.5)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.tick_params(axis='both', labelsize=22)
 plt.tight_layout()
-plt.savefig("../img/ell_half_reg_path_larger.pdf", dpi=300)
+plt.savefig(os.path.join(img_path, "ell_half_reg_path_larger.pdf"), dpi=300)
 
 # -----------------------------------------------------------------
 #            plot scatter plot of fit vs cardinality
@@ -133,7 +138,7 @@ plt.grid(True, linestyle='--', alpha=0.7)
 plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(integer=True))
 plt.tick_params(axis='both', labelsize=22)
 plt.tight_layout()
-plt.savefig("../img/scatter_fit_card_larger.pdf", dpi=300)
+plt.savefig(os.path.join(img_path, "scatter_fit_card_larger.pdf"), dpi=300)
 
 
 # -----------------------------------------------------------------
@@ -169,5 +174,4 @@ plt.ylabel(r'$\|Ax - b\|^2$', fontsize=30)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.tick_params(axis='both', labelsize=22)
 plt.tight_layout()
-plt.savefig("../img/pareto_curve_version2.pdf", dpi=300)
-
+plt.savefig(os.path.join(img_path, "pareto_curve_version2.pdf"), dpi=300)

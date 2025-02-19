@@ -9,6 +9,11 @@ from PIL import Image
 from math import cos, sin
 
 
+img_path = 'img'
+if os.path.basename(os.getcwd()) == 'code':
+    img_path = os.path.join('..', img_path)
+
+
 # dimensions and data
 
 np.random.seed(0)
@@ -93,26 +98,26 @@ plt.figure(figsize=(4.2, 4))
 for x, y in start:
     plt.annotate('', xy=(x/2, y/2), xytext=(x, y), arrowprops=dict(facecolor='black', arrowstyle='->'), zorder=-1)
 draw(start, True)
-plt.savefig('img/collision_avoidance_setting.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'collision_avoidance_setting.pdf'), bbox_inches='tight')
 plt.show()
 
 for t in range(T+1):
     plt.figure(figsize=(4.2, 4))
     draw(Xk[t], True)
-    plt.savefig(f'img/collision_avoidance_frame_{t}.png', bbox_inches='tight')
-    plt.savefig(f'img/collision_avoidance_frame_{t}.pdf', bbox_inches='tight')
+    plt.savefig(os.path.join(img_path, f'collision_avoidance_frame_{t}.png'), bbox_inches='tight')
+    plt.savefig(os.path.join(img_path, f'collision_avoidance_frame_{t}.pdf'), bbox_inches='tight')
     plt.close()
     
 gif_duration = 3
 frame_duration = int((gif_duration / T) * 1000)
 frames = []
 for t in range(T+1):
-    file = f'img/collision_avoidance_frame_{t}.png'
+    file = os.path.join(img_path, f'collision_avoidance_frame_{t}.png')
     if os.path.exists(file):
         frames.append(Image.open(file))
         os.remove(file)
 
-output_path = 'img/collision_avoidance.gif'
+output_path = os.path.join(img_path, 'collision_avoidance.gif')
 frames[0].save(
     output_path,
     save_all=True,
@@ -139,5 +144,5 @@ for t in range(0, T+1, 9):
     draw(Xk[t], True)
     plt.title(f'$t={t}$')
 plt.tight_layout()
-plt.savefig('img/collision_avoidance_frames.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'collision_avoidance_frames.pdf'), bbox_inches='tight')
 plt.show()

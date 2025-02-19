@@ -1,9 +1,14 @@
-
+import os
 import cvxpy as cp
 from cvxpy import Variable, Parameter, Minimize, Problem
 import numpy as np
 from numpy import ones
 from matplotlib import pyplot as plt
+
+
+img_path = 'img'
+if os.path.basename(os.getcwd()) == 'code':
+    img_path = os.path.join('..', img_path)
 
 
 def get_problem(n, A, b):
@@ -47,7 +52,7 @@ xk_ = ccp(x, xk, problem, K)
 
 plt.figure(figsize=(4, 3))
 plot_sol(xk_)
-plt.savefig('img/sat_small.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'sat_small.pdf'), bbox_inches='tight')
 plt.show()
 
 
@@ -71,7 +76,7 @@ val = np.sum(xk_ - xk_**2, axis=1)
 
 plt.figure(figsize=(4, 3))
 plot_sol(xk_)
-plt.savefig('img/sat_large.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'sat_large.pdf'), bbox_inches='tight')
 plt.show()
 
 plt.figure(figsize=(4, 3))
@@ -79,5 +84,5 @@ plt.plot(val, 'blue', linewidth=2)
 plt.xticks(np.arange(K + 1))
 plt.xlabel('k')
 plt.ylim([0, max(val)*1.05])
-plt.savefig('img/sat_large_value.pdf', bbox_inches='tight')
+plt.savefig(os.path.join(img_path, 'sat_large_value.pdf'), bbox_inches='tight')
 plt.show()
