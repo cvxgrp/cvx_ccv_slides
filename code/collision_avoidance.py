@@ -109,7 +109,6 @@ for t in range(T+1):
     file = f'img/collision_avoidance_frame_{t}.png'
     if os.path.exists(file):
         frames.append(Image.open(file))
-        os.remove(file)
 
 output_path = 'img/collision_avoidance.gif'
 frames[0].save(

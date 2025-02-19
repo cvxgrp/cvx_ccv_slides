@@ -2,6 +2,7 @@
 *.ps
 *.pdf
 !img/*.pdf
+img/*.png
 *.dvi
 *.aux
 *.log
