@@ -3,7 +3,6 @@
 *.pdf
 !cvxccv.pdf
 !img/*.pdf
-img/collision_avoidance_frame_*.pdf
 *.dvi
 *.aux
 *.log
