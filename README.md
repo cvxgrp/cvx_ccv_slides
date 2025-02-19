@@ -1,6 +1,6 @@
 # Convex-Concave Lecture Slides and Code
 
-This repository contains the [EE 364a](https://web.stanford.edu/class/ee364a/) slides on the convex-concave procedure,
+This repository contains the [slides on the convex-concave procedure](https://github.com/cvxgrp/cvx_ccv_slides/blob/main/cvxccv.pdf) from [EE 364a](https://web.stanford.edu/class/ee364a/),
 together with example code.
 To see the animations in the PDF file, you need to select a viewer that supports animations, such as Adobe Acrobat Reader.
 
