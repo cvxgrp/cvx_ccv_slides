@@ -68,7 +68,7 @@ plt.plot(x, h2(x), color='blue')
 plt.xticks(np.arange(-1, 2))
 plt.yticks(np.arange(-1, 3))
 plt.xlabel('x')
-plt.savefig(os.path.join(img_path, 'DC1_majorized.pdf'))
+plt.savefig(os.path.join(img_path, 'DC2_majorized.pdf'))
 plt.show()
 
 

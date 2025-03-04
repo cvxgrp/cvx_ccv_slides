@@ -132,7 +132,7 @@ f(x)= (1/2)x^TP_\text{psd}x+q^Tx + r, \qquad g(x)=(1/2)x^TP_\text{nsd}x
 \[
 \hat g(x;z) = g(z)+ \nabla g(z)^T (x-z) \leq g(x)
 \]
-(for nondifferentible $g$, replace $\nabla g(x)$ with any subgradient)
+(for nondifferentiable $g$, replace $\nabla g(x)$ with any subgradient)
 \item for DC function $h=f-g$, define
 \[
 \hat h(x;z)= f(x)-\hat g(x;z)
@@ -539,7 +539,7 @@ y_i + h_i \leq y_j \quad \lor \quad y_j + h_j \leq y_i, \quad i < j
 \ie, rectangle $i$ is left of, right of, below, or above rectangle $j$
 \item express as inequality
 \[
-\min \left(x_i+w_i-x_j, x_j+w_j-x_i, y_i+h_i-y_j, y_j+h_j-y_i\right) \leq 0
+\min \left\{x_i+w_i-x_j, x_j+w_j-x_i, y_i+h_i-y_j, y_j+h_j-y_i\right\} \leq 0
 \]
 \item left-hand side is concave function of $(x,y)$
 \item so non-overlapping can be expressed as a DC inequality constraint
@@ -555,7 +555,7 @@ y_i + h_i \leq y_j \quad \lor \quad y_j + h_j \leq y_i, \quad i < j
 & \sum_{(i, j) \in \mathcal{E}} \|c_i - c_j\|_2^2\\
 \mbox{subject to}
 & \sum_{i=1}^n c_i = 0, \quad c_i = (x_i+w_i/2, y_i + h_i/2), \quad i = 1,\ldots, n,\\
-& \min \left(x_i+w_i-x_j, x_j+w_j-x_i, y_i+h_i-y_j, y_j+h_j-y_i\right) \leq 0, \quad i < j
+& \min \left\{x_i+w_i-x_j, x_j+w_j-x_i, y_i+h_i-y_j, y_j+h_j-y_i\right\} \leq 0, \quad i < j
 %& 0 \leq x_i \leq W - w_i, \quad 0 \leq y_i \leq H - h_i, \quad i = 1,\ldots, n,
 \end{array}
 \]
