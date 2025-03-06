@@ -11,7 +11,9 @@ if os.path.basename(os.getcwd()) == 'code':
     img_path = os.path.join('..', img_path)
 
 
-markersize=30
+markersize = 20
+fontsize = 12
+anthrazit = [0.4, 0.4, 0.4]
 
 def draw_restriction(x1, xk):
     
@@ -20,7 +22,7 @@ def draw_restriction(x1, xk):
 
     x2 = -(xk[0] / xk[1]) * x1 + la.norm(xk) / xk[1]
     plt.fill_between(x1, x2, 10, where=(x2 <= 10), color=0.95*np.ones(3))
-    plt.scatter(xk[0], xk[1], markersize, color='darkgray', marker='s')
+    plt.scatter(xk[0], xk[1], markersize, color=anthrazit)
 
     # Adjust limits and aspect ratio
     plt.xlim(min(x1), max(x1))
@@ -32,12 +34,16 @@ def draw_restriction(x1, xk):
 x1 = np.linspace(-2, 4, 100)
 
 plt.figure(figsize=(4, 4))
-draw_restriction(x1, np.array([3, 1]))
+xk = np.array([3, 1])
+draw_restriction(x1, xk)
+plt.annotate(r'$x^{k}$', xk + np.array([0.1, 0.1]), color='black', fontsize=fontsize)
 plt.savefig(os.path.join(img_path, 'convex_restriction_31.pdf'), bbox_inches='tight')
 plt.show()
 
 plt.figure(figsize=(4, 4))
-draw_restriction(x1, np.array([1, 2]))
+xk = np.array([1, 2])
+draw_restriction(x1, xk)
+plt.annotate(r'$x^{k}$', xk + np.array([0.1, 0.1]), color='black', fontsize=fontsize)
 plt.savefig(os.path.join(img_path, 'convex_restriction_12.pdf'), bbox_inches='tight')
 plt.show()
 
@@ -66,10 +72,19 @@ for k in range(K):
     prob.solve()
     
     if k < 4:
+        
         plt.subplot(2, 2, k+1)
+        
         draw_restriction(x1, xk)
-        plt.scatter(x.value[0], x.value[1], markersize, color='blue')
-        plt.scatter(c[0], c[1], markersize, color='white', marker='x')
+        plt.annotate(f'$x^{{{k}}}$', xk + np.array([0.03, 0.16]), color='black', fontsize=fontsize)
+        
+        plt.scatter(x.value[0], x.value[1], markersize, color=anthrazit)
+        offset = np.array([0.03, 0.16]) if k < 2 else np.array([-0.6, 0.0])
+        plt.annotate(f'$x^{{{k+1}}}$', x.value + offset, color='black', fontsize=fontsize)
+        
+        plt.scatter(c[0], c[1], markersize, color='white')
+        plt.annotate(f'$c$', c + np.array([0.1, -0.3]), color='white', fontsize=fontsize)
+        
         plt.title(f'$k={k}$')
     
     xk = x.value
