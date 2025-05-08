@@ -2,7 +2,6 @@
 *.ps
 *.pdf
 !cvxccv.pdf
-!img/*.pdf
 *.dvi
 *.aux
 *.log
